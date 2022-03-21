@@ -11,6 +11,7 @@ class nginx (
   package { 'nginx':
     ensure   => $version,
     provider => $package_provider,
+    before   => Notify['nginx_version_debug']
   }
 
   notify { 'nginx_version_debug':
